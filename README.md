@@ -38,18 +38,85 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+
+Full ADDER
+
+![WhatsApp Image 2024-11-12 at 11 26 17_29c5fff6](https://github.com/user-attachments/assets/f36d60bc-445e-435d-b269-241727ca0967)
+
+Full SUBRACTOR
+
+![WhatsApp Image 2024-11-12 at 11 24 20_b05e70a0](https://github.com/user-attachments/assets/e2a050d7-1e98-46a7-ae15-64f5a4ec525f)
+
+
 **Procedure**
 
-Write the detailed procedure here
+1.	Type the program in Quartus software.
+
+2.	Compile and run the program.
+
+3.	Generate the RTL schematic and save the logic diagram.
+
+4.	Create nodes for inputs and outputs to generate the timing diagram.
+
+5.	For different input combinations generate the timing diagram.
 
 **Program:**
+```
+//full adder
+ module exp4(sum, cout, a, b, cin);
+ output sum;
+ output cout; 
+ input a;
+ input b; 
+ input cin;
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+// //internal nets
+ wire sl, cl,c2;
+
+ //Instantiate logic gate primitives
+ xor (sl,a,b);
+ and(cl,a,b); 
+ xor(sum, sl, cin);
+ and(c2, sl, cin); 
+ or (cout, c2,cl); 
+ endmodule
+```
+```
+//full subractor
+module exp4a (df, bo, a, b, bin);
+ output df;
+ output bo;
+ input a;
+ input b;
+ input bin;
+ wire w1,w2, w3; 
+ assign w1=a^b;
+ assign w2=(~a&b); 
+ assign w3=(~w1&bin); 
+ assign df=w1^bin;
+ assign bo=w2|w3;
+ endmodule
+```
+
+
+program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+
+Developed by: DHANUSH M.D RegisterNumber:24900042
 
 **RTL Schematic**
 
+
+Full Adder
+![Screenshot 2024-11-12 103015](https://github.com/user-attachments/assets/f2ee39a0-1d73-45e5-b29a-d2789aaa08db)
+Full Subractor
+![Screenshot 2024-11-12 104406](https://github.com/user-attachments/assets/50a589ae-7746-4e68-937d-7a9577c2f9c6)
 **Output Timing Waveform**
+
+
+Full Adder
+![Screenshot 2024-11-12 102929](https://github.com/user-attachments/assets/09bbcfbe-744b-4096-83d2-6b6c87a30bb4)
+Full Subractor
+![Screenshot 2024-11-12 104657](https://github.com/user-attachments/assets/b5e829c8-a400-4353-b60b-4a0076c380f1)
 
 **Result:**
 
